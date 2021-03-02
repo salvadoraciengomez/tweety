@@ -3,7 +3,8 @@
         <textarea name="body" id="" class="w-full" placeholder="Escribe tu tuit"></textarea>
         <hr class="my-4">
         <footer class="flex justify-between">
-            <img src="https://i.pravatar.cc/40" alt="" class="rounded-full mr-2">
+            <img src="{{ auth()->user()->avatar }}" alt="" class="rounded-full mr-2"> 
+            {{-- auth()->user()->avatar devuelto por getAvatarAttribute function --}}
             <button type="submit" class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white">Tweetea</button>
         </footer>
     </form>
