@@ -9,11 +9,9 @@
             @include('_publish-tweet-panel')
             
             <div id="timeline" class="border border-gray-300 rounded-lg">
-                @include('_tweet')
-                @include('_tweet')
-                @include('_tweet')
-                @include('_tweet')
-                @include('_tweet')
+                @foreach ( $tweets as $tweet)
+                    @include('_tweet')
+                @endforeach
             </div>
 
         </div>
