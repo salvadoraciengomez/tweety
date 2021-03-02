@@ -10,6 +10,6 @@
         </footer>
     </form>
     @error('body')
-        <p class="text-red text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
     @enderror
 </div>
