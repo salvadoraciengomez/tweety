@@ -45,7 +45,7 @@ class User extends Authenticatable
         //Añade los propios a $ids
         $ids->push($this->id);
         //Devuelve los tuits con las ids que hay en $ids ordenados por más reciente
-        Tweet::whereIn('user_id', $ids)->latest()->get();
+        return Tweet::whereIn('user_id', $ids)->latest()->get();
     }
 
     public function tweets(){
