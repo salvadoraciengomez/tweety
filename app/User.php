@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Tweet;
 
 class User extends Authenticatable
 {
@@ -39,6 +40,17 @@ class User extends Authenticatable
 
     public function timeline(){
         return Tweet::where('user_id', $this->id)->latest()->get();
+        //$ids= Mete los ids de los usuarios a los que sigue
+        $ids= $this->follows->pluck('id');
+        //Añade los propios a $ids
+        $ids->push($this->id);
+        //Devuelve los tuits con las ids que hay en $ids ordenados por más reciente
+        Tweet::whereIn('user_id', $ids)->latest()->get();
+    }
+
+    public function tweets(){
+        return $this->hasMany(Tweet::class);
+        //Devuelve solamente los tuits del usuario
     }
 
     public function getAvatarAttribute(){
