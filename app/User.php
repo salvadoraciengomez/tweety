@@ -67,3 +67,4 @@ class User extends Authenticatable
         // desde la tabla follows, campos user_id following_user_id
     }
 }
+// 
