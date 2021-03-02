@@ -21,6 +21,6 @@ Route::middleware('auth')->group(function (){ //Requiere auth para dichas rutas 
     Route::post('/tweets', 'TweetsController@store');
 });
 
-Route::get('/profiles/{user}', 'ProfilesController@show');
+Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 
 Auth::routes();
