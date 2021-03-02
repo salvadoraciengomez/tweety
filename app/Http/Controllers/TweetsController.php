@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Tweet;
 use App\User;
 
-class TweetController extends Controller
+class TweetsController extends Controller
 {
     public function index()
     {
