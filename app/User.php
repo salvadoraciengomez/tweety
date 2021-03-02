@@ -40,12 +40,13 @@ class User extends Authenticatable
 
     public function timeline(){
         return Tweet::where('user_id', $this->id)->latest()->get();
-        //$ids= Mete los ids de los usuarios a los que sigue
-        $ids= $this->follows()->pluck('id'); //si está especificado follows->pluck('id') sin paréntesis, devolvería colección con X usuarios, pero con paréntesis solamente devuelve las id
-        //Añade los propios a $ids
-        $ids->push($this->id);
-        //Devuelve los tuits con las ids que hay en $ids ordenados por más reciente
-        return Tweet::whereIn('user_id', $ids)->latest()->get();
+        //$friends= Mete los ids de los usuarios a los que sigue
+        $friends= $this->follows()->pluck('id'); //si está especificado follows->pluck('id') sin paréntesis, devolvería colección con X usuarios, pero con paréntesis solamente devuelve las id
+
+        //Devuelve los tuits con las ids que hay en $friends o cuya id pertenezca al usuario ordenados por más reciente
+        return Tweet::whereIn('user_id', $friends)
+            ->orWhere('user_id', $this->id)
+            ->latest()->get();
     }
 
     public function tweets(){
