@@ -1,6 +1,7 @@
 <div id="textbox" class="border border-blue-400 rounded-lg px-8 py-6 mb-8">
-    <form action="">
-        <textarea name="body" id="" class="w-full" placeholder="Escribe tu tuit"></textarea>
+    <form  method="POST" action="/tweets">
+        @csrf
+        <textarea name="body" id="" class="w-full" placeholder="Escribe tu tuit" required></textarea>
         <hr class="my-4">
         <footer class="flex justify-between">
             <img src="{{ auth()->user()->avatar }}" alt="" class="rounded-full mr-2"> 
