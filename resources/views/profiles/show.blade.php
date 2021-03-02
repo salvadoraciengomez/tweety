@@ -15,6 +15,7 @@
                 <a href="" class="bg-blue-500 rounded-full shadow px-4 py-2 text-white text-xs">Follow Me</a>
             </div>
         </div>
+        <p class="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi cum nesciunt, quae distinctio et incidunt amet odio? Nam perspiciatis earum ratione veniam illo, cupiditate fugit? Cumque ratione cupiditate recusandae tempore.</p>
         <img src="{{ $user->avatar }}" alt="" class="rounded-full mr-2 absolute" style="width:150px;top:47%;left:calc(45%);top:215px">
     </header>
     @include('_timeline',[
