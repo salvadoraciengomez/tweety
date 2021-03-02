@@ -66,5 +66,8 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
         // desde la tabla follows, campos user_id following_user_id
     }
+
+    public function getRouteKeyName(){
+        return 'name';  //Se usa para que al buscar /profiles/{user} busque por 'name' en lugar de DEFAULT 'id'
+    }
 }
-// 
