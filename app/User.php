@@ -80,6 +80,6 @@ class User extends Authenticatable
     public function path($param ='' ){
         $path = route('profile', $this->username);
 
-        return $param ? "{$path}/{$param}" : $param;
+        return $param ? "{$path}/{$param}" : $path;
     }
 }
