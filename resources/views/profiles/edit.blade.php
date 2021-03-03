@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ $user->patch() }}">
+    <form action="{{ $user->path() }}">
         @csrf
         @method('PATCH')
 
