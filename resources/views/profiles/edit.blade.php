@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ $user->path() }}" method="POST">
+    <form action="{{ $user->path() }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
@@ -25,6 +25,14 @@
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="username">Username:</label>
             <input class="border border-gray-400 p-2 w-full" type="text" name="username" id="username"  value="{{ $user->username }}"required>
             @error('username')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="mb-6">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="avatar">Avatar:</label>
+            <input class="border border-gray-400 p-2 w-full" type="file" name="avatar" id="avatar"  value="{{ $user->avatar }}"required>
+            @error('avatar')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>

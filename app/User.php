@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username','name', 'email', 'password',
+        'username','name', 'avatar', 'email', 'password',
     ];
 
     /**
@@ -54,8 +54,8 @@ class User extends Authenticatable
         //Devuelve solamente los tuits del usuario por orden 
     }
 
-    public function getAvatarAttribute(){
-        return "https://i.pravatar.cc/200?u=".$this->email;
+    public function getAvatarAttribute($value){
+        return asset("storage/".$value);
     }
 
 

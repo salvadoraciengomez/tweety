@@ -36,6 +36,10 @@ class ProfilesController extends Controller
                 'required',
                 'max:255'
             ],
+            'avatar' => [
+                'required',
+                'file'
+            ],
             'email' => ['string', 'required', 'email', 'max:255',Rule::unique('users')->ignore($user)],
             'password' => [
                 'string',
@@ -45,6 +49,11 @@ class ProfilesController extends Controller
                 'confirmed'
             ],
         ]);
+
+        $attributes['avatar']=request('avatar')->store('avatars');
+        //require: 
+        //.env >> FILESYSTEM_DRIVER=public
+        //php artisan storage:link
 
         $user->update($attributes);
         return redirect($user->path());
