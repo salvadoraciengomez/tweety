@@ -77,7 +77,9 @@ class User extends Authenticatable
         return 'name';  //Se usa para que al buscar /profiles/{user} busque por 'name' en lugar de DEFAULT 'id'
     }
 
-    public function path(){
-        return route('profile', $this->name);
+    public function path($param ='' ){
+        $path = route('profile', $this->name);
+
+        return $param ? "{$path}/{$param}" : $param;
     }
 }
