@@ -11,7 +11,9 @@
                 <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
             <div class="flex">
-                <a href="" class="rounded-full shadow py-2 px-4 text-black text-xs">Edit Profile</a>
+                @if(auth()->user()->is($user))
+                    <a href="" class="rounded-full shadow py-2 px-4 text-black text-xs">Edit Profile</a>
+                @endif
                 @if(auth()->user()->isNot($user))
                     <form method="POST" action="/profiles/{{ $user->name }}/follow">
                         @csrf
