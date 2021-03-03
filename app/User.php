@@ -50,8 +50,8 @@ class User extends Authenticatable
     }
 
     public function tweets(){
-        return $this->hasMany(Tweet::class);
-        //Devuelve solamente los tuits del usuario
+        return $this->hasMany(Tweet::class)->latest();
+        //Devuelve solamente los tuits del usuario por orden 
     }
 
     public function getAvatarAttribute(){
