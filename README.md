@@ -1,3 +1,26 @@
+composer create-project laravel/laravel="6.*" tweety
+
+	edit composer.json require: "laravel/ui": "^1.0"
+composer update
+php artisan ui vue --auth
+npm install 
+npm audit fix
+npm install --save-dev resolve-url-loader@3.1.2
+npm run dev 
+	mysql createDB tweety
+php artisan migrate
+
+FOLLOW TAILWINDCSS INSTRUCTIONS FOR LARAVEL MIX BUT: npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+
+npm run dev
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
