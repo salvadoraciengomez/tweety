@@ -12,6 +12,25 @@ trait Followable{
         return $this->follows()->detach($user);
     }
 
+    public function toggleFollow(User $user){
+        // if(auth()->user()->following($user)){
+        //     auth()->user()->unfollow($user);
+        // }
+        // else{
+            
+        //     auth()->user()->follow($user);
+        // }
+        if($this->following($user)){
+            return $this->unfollow($user);
+        }
+        else{
+            
+            return $this->follow($user);
+        }
+    }
+
+
+
     public function follows(){
         return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
         // desde la tabla follows, campos user_id following_user_id
