@@ -58,18 +58,20 @@ class User extends Authenticatable
         return "https://i.pravatar.cc/200?u=".$this->email;
     }
 
-    public function follow(User $user){
-        return $this->follows()->save($user);
-    }
 
-    public function follows(){
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
-        // desde la tabla follows, campos user_id following_user_id
-    }
+    #Métodos movidos al trait followable
+    // public function follow(User $user){
+    //     return $this->follows()->save($user);
+    // }
 
-    public function following(){
-        
-    }
+    // public function follows(){
+    //     return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
+    //     // desde la tabla follows, campos user_id following_user_id
+    // }
+
+    // public function following(){
+
+    // }
 
     public function getRouteKeyName(){
         return 'name';  //Se usa para que al buscar /profiles/{user} busque por 'name' en lugar de DEFAULT 'id'
