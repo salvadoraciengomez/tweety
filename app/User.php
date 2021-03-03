@@ -58,6 +58,10 @@ class User extends Authenticatable
         return asset("storage/".$value);
     }
 
+    public function setPasswordAttribute($value){
+        $this->attributes['password']=bcrypt($value);
+    }
+
 
     #Métodos movidos al trait followable
     // public function follow(User $user){
