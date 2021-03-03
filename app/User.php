@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username','name', 'email', 'password',
     ];
 
     /**
@@ -74,11 +74,11 @@ class User extends Authenticatable
     // }
 
     public function getRouteKeyName(){
-        return 'name';  //Se usa para que al buscar /profiles/{user} busque por 'name' en lugar de DEFAULT 'id'
+        return 'username';  //Se usa para que al buscar /profiles/{user} busque por 'name' en lugar de DEFAULT 'id'
     }
 
     public function path($param ='' ){
-        $path = route('profile', $this->name);
+        $path = route('profile', $this->username);
 
         return $param ? "{$path}/{$param}" : $param;
     }
