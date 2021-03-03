@@ -76,4 +76,8 @@ class User extends Authenticatable
     public function getRouteKeyName(){
         return 'name';  //Se usa para que al buscar /profiles/{user} busque por 'name' en lugar de DEFAULT 'id'
     }
+
+    public function path(){
+        return route('profile', $this->name);
+    }
 }
