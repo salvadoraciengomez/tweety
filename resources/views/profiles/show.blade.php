@@ -14,7 +14,9 @@
                 <a href="" class="rounded-full shadow py-2 px-4 text-black text-xs">Edit Profile</a>
                 <form method="POST" action="/profiles/{{ $user->name }}/follow">
                     @csrf
-                    <button type="submit" class="bg-blue-500 rounded-full shadow px-4 py-2 text-white text-xs">Follow Me</button>
+                    <button type="submit" class="bg-blue-500 rounded-full shadow px-4 py-2 text-white text-xs">
+                        {{ auth()->user()->following($user) ? 'Unfollow Me' : 'Follow Me' }}
+                    </button>
                 </form>
             </div>
         </div>
