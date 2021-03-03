@@ -12,12 +12,14 @@
             </div>
             <div class="flex">
                 <a href="" class="rounded-full shadow py-2 px-4 text-black text-xs">Edit Profile</a>
-                <form method="POST" action="/profiles/{{ $user->name }}/follow">
-                    @csrf
-                    <button type="submit" class="bg-blue-500 rounded-full shadow px-4 py-2 text-white text-xs">
-                        {{ auth()->user()->following($user) ? 'Unfollow Me' : 'Follow Me' }}
-                    </button>
-                </form>
+                @if(auth()->user()->isNot($user))
+                    <form method="POST" action="/profiles/{{ $user->name }}/follow">
+                        @csrf
+                        <button type="submit" class="bg-blue-500 rounded-full shadow px-4 py-2 text-white text-xs">
+                            {{ auth()->user()->following($user) ? 'Unfollow Me' : 'Follow Me' }}
+                        </button>
+                    </form>
+                @endif
             </div>
         </div>
         <p class="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi cum nesciunt, quae distinctio et incidunt amet odio? Nam perspiciatis earum ratione veniam illo, cupiditate fugit? Cumque ratione cupiditate recusandae tempore.</p>
