@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- <h3>profile page for {{ $user->name }}</h3>
-    <hr> --}}
     <header class="mb-6">
         <img src="/images/bio.png" alt="" class="mb-2">
         <div class="flex justify-between items-center">
