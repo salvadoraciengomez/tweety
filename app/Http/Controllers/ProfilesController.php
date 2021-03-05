@@ -13,6 +13,12 @@ class ProfilesController extends Controller
         return view('profiles.show', compact('user'));
     }
 
+    public function showFollowers(User $user){
+
+        return view('profiles.followers',compact('user'));
+    }
+
+
     public function edit(User $user){
 
         if($user->isNot(auth()->user())) abort(403);
