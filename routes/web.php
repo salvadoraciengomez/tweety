@@ -22,10 +22,11 @@ Route::middleware('auth')->group(function (){ //Requiere auth para dichas rutas 
     Route::post('/profiles/{user}/follow', 'FollowsController@store');
     Route::get('/profiles/{user}/edit', 'ProfilesController@edit');
     Route::patch('/profiles/{user}', 'ProfilesController@update');
+    Route::get('/todos', 'ProfilesController@showAll')->name('todos');
 });
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
-Route::get('/todos', 'ProfilesController@showAll')->name('todos');
+
 
 
 Auth::routes();

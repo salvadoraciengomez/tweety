@@ -3,8 +3,10 @@
     
 
     <table><td>
-        @foreach($todos as $usuario)
-            <tr>{{$usuario->username}}</tr>
+        {{ $i=0 }}
+        @foreach($todos as $user)
+            <?php $i++;?>
+            <tr>Usuario {{$i.':'}}<a href="{{'/profiles/'.$user->username}}">{{$user->username}}</a></tr><br>
         @endforeach
     </td></table>
 
