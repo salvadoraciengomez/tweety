@@ -63,9 +63,9 @@ class ProfilesController extends Controller
     }
 
     public function showAll(){
-        $todos=\DB::table('users')->select('username')->get();
+        $users=\DB::table('users')->select('username')->get();
         return view('profiles.showAll', [
-            'todos' => $todos
+            'users' => $users
         ]);
     }
 }
