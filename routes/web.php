@@ -25,5 +25,7 @@ Route::middleware('auth')->group(function (){ //Requiere auth para dichas rutas 
 });
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
+Route::get('/todos', 'ProfilesController@showAll')->name('todos');
+
 
 Auth::routes();

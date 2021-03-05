@@ -60,4 +60,11 @@ class ProfilesController extends Controller
         $user->update($attributes);
         return redirect($user->path());
     }
+
+    public function showAll(){
+        $todos=\DB::table('users')->select('username')->get();
+        return view('profiles.showAll', [
+            'todos' => $todos
+        ]);
+    }
 }
