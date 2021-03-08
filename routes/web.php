@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function (){ //Requiere auth para dichas rutas 
     Route::get('/profiles/{user}/edit', 'ProfilesController@edit');
     Route::patch('/profiles/{user}', 'ProfilesController@update');
     Route::get('/profiles/{user}/seguidores','ProfilesController@showFollowers');
+    Route::get('/delete/{tweet}', 'TweetsController@softDelete');
 });
 
 Route::get('/todos', 'ProfilesController@showAll')->name('todos');

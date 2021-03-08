@@ -8,6 +8,7 @@ use App\Tweet;
 use App\User;
 
 class TweetsController extends Controller
+
 {
     public function index()
     {
@@ -20,10 +21,17 @@ class TweetsController extends Controller
         $attributes = request()->validate(['body' => 'required|max:255']);
         Tweet::create([
             'user_id' => auth()->user()->id,
-            // 'user_id' => auth()->id() 
+            // 'user_id' => auth()->id()
             'body' => $attributes['body']
         ]);
 
         return redirect()->route('home');
+    }
+
+    public function softDelete(Tweet $tweet){
+
+        $tweet->delete();
+        return redirect()->route('home');
+
     }
 }
