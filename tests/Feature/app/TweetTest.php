@@ -33,7 +33,10 @@ class TweetTest extends TestCase
 
         $response->assertStatus(200);
     }
-    public function testCreaTuitUser1(){
+    public function testBDCreaTuitUser1(){
+        //requiere modificar phpunit.xml con
+        //        <server name="DB_CONNECTION" value="mysql"/>
+        //        <server name="DB_DATABASE" value="tweety2"/>
 
 
         $tweet=Tweet::create([
