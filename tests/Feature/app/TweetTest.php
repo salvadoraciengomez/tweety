@@ -47,4 +47,13 @@ class TweetTest extends TestCase
         $this->assertInstanceOf(Tweet::class, $tweet);
 
     }
+
+    public function testIfLongTweets(){
+        $allTweets=Tweet::all();
+        $i=0;
+        for ($i=0;$i<count($allTweets);$i++){
+            $tweet=$allTweets[$i];
+            $this->assertFalse(strlen($tweet->body)>200);
+        }
+    }
 }
