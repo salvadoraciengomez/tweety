@@ -47,8 +47,3 @@ services:
 networks:
   tweety2-network:
     driver: bridge
-  
-
-networks:
-  app:
-    driver: bridge
