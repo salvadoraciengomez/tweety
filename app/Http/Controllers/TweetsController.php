@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Tweet;
 use App\User;
 
@@ -24,6 +25,11 @@ class TweetsController extends Controller
             'body' => $attributes['body']
         ]);
 
+        return redirect()->route('home');
+    }
+    
+    public function logout(){
+        Auth::logout();
         return redirect()->route('home');
     }
 }
