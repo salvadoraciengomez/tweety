@@ -28,18 +28,16 @@ class TweetsController extends Controller
 
         return redirect()->route('home');
     }
-<<<<<<< HEAD
     
     public function logout(){
         Auth::logout();
         return redirect()->route('home');
-=======
+    }
 
     public function softDelete(Tweet $tweet){
 
         $tweet->delete();
         return redirect()->route('home');
 
->>>>>>> SoftDeletions
     }
 }
