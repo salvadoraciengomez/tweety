@@ -9,8 +9,10 @@ use App\Tweet;
 
 class User extends Authenticatable
 {
+
     use Notifiable, Followable;
 
+    //Preparing for softDeletions
     /**
      * The attributes that are mass assignable.
      *

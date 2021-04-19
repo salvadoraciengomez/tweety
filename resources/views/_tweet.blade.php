@@ -8,5 +8,6 @@
         <p class="text-sm">
             {{ $tweet->body }}
         </p>
+        <p><a href="/delete/{{$tweet->id}}">SoftDelete Tweet</a></p>
     </div>
 </div>

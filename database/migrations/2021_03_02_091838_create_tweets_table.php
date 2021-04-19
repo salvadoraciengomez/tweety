@@ -17,6 +17,7 @@ class CreateTweetsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('body');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')
